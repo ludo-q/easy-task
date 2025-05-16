@@ -1,1 +1,20 @@
-<app-header></app-header>
+<app-header />
+
+<main>
+    <nav>
+        <ul class="users">
+            <li> 
+                <app-user [avatar]="users[0].avatar" [name]="users[0].name"/> 
+            </li>
+            <li> 
+                <app-user [avatar]="users[2].avatar" [name]="users[1].name"/> 
+            </li>
+            <li> 
+                <app-user [avatar]="users[3].avatar" [name]="users[2].name"/> 
+            </li>
+            <li> 
+                <app-user [avatar]="users[4].avatar" [name]="users[3].name"/> 
+            </li>
+        </ul>
+    </nav>
+</main>
