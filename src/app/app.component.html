@@ -4,17 +4,30 @@
     <nav>
         <ul class="users">
             <li> 
-                <app-user [avatar]="users[0].avatar" [name]="users[0].name"/> 
+                <app-user 
+                    [user]="users[0]" 
+                    (onSelected)="onSelectedUser($event)"
+                /> 
             </li>
             <li> 
-                <app-user [avatar]="users[2].avatar" [name]="users[1].name"/> 
+                <app-user 
+                    [user]="users[1]"
+                    (onSelected)="onSelectedUser($event)"
+                /> 
             </li>
             <li> 
-                <app-user [avatar]="users[3].avatar" [name]="users[2].name"/> 
+                <app-user 
+                    [user]="users[2]"
+                    (onSelected)="onSelectedUser($event)"
+                /> 
             </li>
             <li> 
-                <app-user [avatar]="users[4].avatar" [name]="users[3].name"/> 
+                <app-user 
+                    [user]="users[3]"
+                    (onSelected)="onSelectedUser($event)"
+                /> 
             </li>
         </ul>
     </nav>
+    <app-task [userName]="selectedUserName()"></app-task>
 </main>
