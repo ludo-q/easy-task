@@ -1,10 +1,6 @@
 import { Component, computed, input, output } from '@angular/core';
+import { User } from '../core/user.model';
 
-interface User {
-  id: string;
-  avatar: string;
-  name: string;
-}
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',

@@ -3,31 +3,21 @@
 <main>
     <nav>
         <ul class="users">
-            <li> 
-                <app-user 
-                    [user]="users[0]" 
-                    (onSelected)="onSelectedUser($event)"
-                /> 
-            </li>
-            <li> 
-                <app-user 
-                    [user]="users[1]"
-                    (onSelected)="onSelectedUser($event)"
-                /> 
-            </li>
-            <li> 
-                <app-user 
-                    [user]="users[2]"
-                    (onSelected)="onSelectedUser($event)"
-                /> 
-            </li>
-            <li> 
-                <app-user 
-                    [user]="users[3]"
-                    (onSelected)="onSelectedUser($event)"
-                /> 
-            </li>
+            @for (user of users; track user.id) {
+                <li> 
+                    <app-user 
+                        [user]="user" 
+                        (onSelected)="onSelectedUser($event)"
+                    /> 
+                </li>
+            }
         </ul>
     </nav>
-    <app-task [userName]="selectedUserName()"></app-task>
+    @if (selectedUser(); as user) {
+        <app-task [userName]="user.name"></app-task>
+    } @else {
+        <h2>
+            Select a user to see their tasks!
+        </h2>
+    }
 </main>

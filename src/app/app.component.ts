@@ -3,6 +3,7 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './user/dummy-users';
 import { TaskComponent } from './task/task.component';
+import { User } from './core/user.model';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,9 @@ import { TaskComponent } from './task/task.component';
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserName = signal<string | undefined>(DUMMY_USERS[0].name);
+  selectedUser = signal<User | undefined>(undefined)
 
   onSelectedUser(id: string) {
-    this.selectedUserName.set(
-      DUMMY_USERS.find((user) => user.id === id)?.name
-    );
+    this.selectedUser.set(this.users.find((user) => user.id === id));
   }
 }
