@@ -8,6 +8,7 @@ import { User } from '../core/user.model';
 })
 export class UserComponent {
  user = input.required<User>();
+ selected = input.required<boolean>();
  onSelected = output<string>();
 
  avatarUrl = computed(() => `assets/imgs/users/${this.user().avatar}`)

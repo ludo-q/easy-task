@@ -8,16 +8,14 @@
                     <app-user 
                         [user]="user" 
                         (onSelected)="onSelectedUser($event)"
+                        [selected]="selectedUser()?.id === user.id"
                     /> 
                 </li>
             }
         </ul>
     </nav>
-    @if (selectedUser(); as user) {
-        <app-task [userName]="user.name"></app-task>
-    } @else {
-        <h2>
-            Select a user to see their tasks!
-        </h2>
-    }
+    <app-task 
+        [userName]="selectedUser()?.name"
+        [userId]="selectedUser()?.id"
+    />
 </main>

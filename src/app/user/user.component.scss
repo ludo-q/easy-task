@@ -1,27 +1,30 @@
 div {
-    border-radius: 6px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.35rem 0.5rem;
-    background-color: #c19cf2;
-    color: #24083f;
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    width: 100%;
-    min-width: 10rem;
-}
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background-color: #c19cf2;
+  color: #24083f;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+  min-width: 10rem;
 
-button:hover,
-button:active,
-.active {
-  background-color: #8f8f8f;
+  &:hover,
+  &:active {
+    background-color: #8f8f8f;
+  }
+
+  &.active {
+    background-color: #8229f7;
+  }
 }
 
 img {
