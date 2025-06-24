@@ -3,7 +3,7 @@
         @if(userName(); as name) {
         <h2>{{name}}'s Tasks</h2>
         <menu>
-            <button (click)="onAddTask()">Add Task</button>
+            <button (click)="onOpenAddTask()">Add Task</button>
         </menu>
         } @else {
         <h2>Select a user to see their tasks!</h2>
@@ -17,5 +17,5 @@
     </ul>
 </section>
 @if (showAddTaskDialog()) {
-    <app-add-task-dialog />
+    <app-add-task-dialog (cancel)="onCancelAddTask()" (add)="onAddTask($event)"/>
 }
