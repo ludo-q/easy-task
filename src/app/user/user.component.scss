@@ -9,8 +9,8 @@ button {
   align-items: center;
   gap: 0.5rem;
   padding: 0.35rem 0.5rem;
-  background-color: #c19cf2;
-  color: #24083f;
+  background-color: var(--secondary);
+  color: var(--text-dark);
   border: none;
   font: inherit;
   cursor: pointer;
@@ -19,11 +19,13 @@ button {
 
   &:hover,
   &:active {
-    background-color: #8f8f8f;
+    background-color: var(--state-hover);
+    color: var(--text-light);
   }
 
   &.active {
-    background-color: #8229f7;
+    color: var(--text-light);
+    background-color: var(--state-active);
   }
 }
 

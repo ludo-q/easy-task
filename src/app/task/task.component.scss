@@ -3,7 +3,7 @@ section {
     border-radius: 8px;
     max-height: 60vh;
     overflow: auto;
-    background-color: #c19cf2;
+    background-color: var(--state-active);
 }
 
 header {
@@ -20,7 +20,8 @@ menu {
     button {
         font: inherit;
         cursor: pointer;
-        background-color: #9965dd;
+        background-color: var(--primary);
+        color: var(--text-light);
         border-radius: 4px;
         border: none;
         padding: 0.35rem 0.8rem;
@@ -29,7 +30,7 @@ menu {
 
         &:hover,
         &:active {
-        background-color: #8f8f8f
+            background-color: var(--state-hover);
         }
     }
 }

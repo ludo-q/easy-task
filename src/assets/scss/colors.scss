@@ -1,0 +1,34 @@
+@use 'sass:meta';
+
+$colors: (
+    'primary': #7d40bd,
+    'secondary': #5db9ac,
+    'accent': #c19cf2,
+    'text': ('dark': #333333,
+        'light': #d0c2e1,
+    ),
+    'background': ('light': #d0c2e1,
+        'dark': #4b2d6b,
+    ),
+    'state': ('hover': #8f8f8f,
+        'active': #402558,
+        'disabled': #cccccc,
+    )
+);
+
+// Convert SCSS map to CSS custom properties
+@mixin create-css-vars($map, $prefix: '') {
+    @each $key, $value in $map {
+        @if meta.type-of($value)=='map' {
+            @include create-css-vars($value, $prefix + $key + '-');
+        }
+
+        @else {
+            --#{$prefix}#{$key}: #{$value};
+        }
+    }
+}
+
+:root {
+    @include create-css-vars($colors)
+}
