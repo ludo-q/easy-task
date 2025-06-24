@@ -1,18 +1,21 @@
 <section>
     <header>
         @if(userName(); as name) {
-            <h2>{{name}}'s Tasks</h2>
-            <menu>
-                <button>Add Task</button>
-            </menu>
+        <h2>{{name}}'s Tasks</h2>
+        <menu>
+            <button (click)="onAddTask()">Add Task</button>
+        </menu>
         } @else {
-            <h2>Select a user to see their tasks!</h2>
+        <h2>Select a user to see their tasks!</h2>
         }
     </header>
 
     <ul>
         @for (task of selectedUserTasks(); track task.id) {
-            <li><app-task-item [task]="task"/></li>
+        <li><app-task-item [task]="task" (complete)="onCompleteTask($event)" /></li>
         }
     </ul>
 </section>
+@if (showAddTaskDialog()) {
+    <app-add-task-dialog />
+}
