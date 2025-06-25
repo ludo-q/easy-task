@@ -17,5 +17,7 @@ export class AppComponent {
 
   onSelectedUser(id: string) {
     this.selectedUser.set(this.users.find((user) => user.id === id));
+    console.log(this.selectedUser());
+    
   }
 }

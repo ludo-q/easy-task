@@ -1,29 +1,36 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BaseTask } from '../../core/task.model';
+import { TaskService } from '../task.service';
 @Component({
   selector: 'app-add-task-dialog',
   imports: [FormsModule],
   templateUrl: './add-task-dialog.component.html',
-  styleUrl: './add-task-dialog.component.scss'
+  styleUrl: './add-task-dialog.component.scss',
 })
 export class AddTaskDialogComponent {
-  cancel = output<void>();
-  add = output<BaseTask>();
-  
+  hide = output<void>();
+  userId = input.required<string>();
+  private taskService = inject(TaskService);
+
   enteredTitle = signal('');
   enteredSummary = signal('');
   enteredDate = signal('');
 
-  onCancel() {
-    this.cancel.emit();
+  onHide() {
+    this.hide.emit();
   }
 
   onSubmit() {
-    this.add.emit({
-      title: this.enteredTitle(),
-      summary: this.enteredSummary(),
-      dueDate: this.enteredDate()
-    });
+    this.taskService.addTask(
+      {
+        title: this.enteredTitle(),
+        summary: this.enteredSummary(),
+        dueDate: this.enteredDate(),
+      },
+      this.userId()
+    );
+
+    this.onHide();
   }
 }

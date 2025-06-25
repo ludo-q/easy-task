@@ -12,10 +12,10 @@
 
     <ul>
         @for (task of selectedUserTasks(); track task.id) {
-        <li><app-task-item [task]="task" (complete)="onCompleteTask($event)" /></li>
+        <li><app-task-item [task]="task"/></li>
         }
     </ul>
 </section>
 @if (showAddTaskDialog()) {
-    <app-add-task-dialog (cancel)="onCancelAddTask()" (add)="onAddTask($event)"/>
+<app-add-task-dialog (hide)="onHideAddTask()" [userId]="userId()"/>
 }

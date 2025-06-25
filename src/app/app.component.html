@@ -14,8 +14,11 @@
             }
         </ul>
     </nav>
-    <app-task 
-        [userName]="selectedUser()?.name"
-        [userId]="selectedUser()?.id"
-    />
+    @if(selectedUser(); as user) {
+        <app-task 
+            [userName]="user.name"
+            [userId]="user.id"
+        />
+    }
+    
 </main>
