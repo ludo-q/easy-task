@@ -1,10 +1,8 @@
 import { Component, inject, input, output, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BaseTask } from '../../core/task.model';
 import { TaskService } from '../task.service';
 @Component({
   selector: 'app-add-task-dialog',
-  imports: [FormsModule],
+  standalone: false,
   templateUrl: './add-task-dialog.component.html',
   styleUrl: './add-task-dialog.component.scss',
 })
